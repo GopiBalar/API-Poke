@@ -1,6 +1,6 @@
 import React from "react";
 
-function PokemonCard({ image, name, tags }) {
+function PokemonCard({ image, name, tags, idx }) {
   function getTagBackgroundColor(type) {
     switch (type) {
       case "grass":
@@ -93,7 +93,7 @@ function PokemonCard({ image, name, tags }) {
     marginRight: "8px",
     marginbottom: "8px",
     borderRadius: "20px",
-    // backgroundColor: getTagBackgroundColor(type),
+    backgroundColor: getTagBackgroundColor(),
   };
 
   return (
@@ -101,7 +101,10 @@ function PokemonCard({ image, name, tags }) {
       <div style={imageContainerStyles}>
         <img src={image} alt={name} style={imageStyles} />
       </div>
-      <h2 style={nameStyles}>{name}</h2>
+      <h2 style={nameStyles}>
+        {name}
+        <h5>{idx}</h5>
+      </h2>
       <div style={tagStyles}>
         {tags.map((tag, index) => (
           <span
