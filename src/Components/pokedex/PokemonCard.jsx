@@ -1,6 +1,6 @@
 import React from "react";
 
-function PokemonCard({ image, name, tags, idx }) {
+function PokemonCard({ image, name, tags, id }) {
   function getTagBackgroundColor(type) {
     switch (type) {
       case "grass":
@@ -12,7 +12,7 @@ function PokemonCard({ image, name, tags, idx }) {
       case "bug":
         return "#AAB150";
       case "dark":
-        return "#4F4F4F";
+        return "#AC7D88";
       case "dragon":
         return "#743DB7";
       case "electric":
@@ -24,7 +24,7 @@ function PokemonCard({ image, name, tags, idx }) {
       case "flying":
         return "#8A8CFF";
       case "ghost":
-        return "#636392";
+        return "#BF3131";
       case "ground":
         return "#E48B41";
       case "ice":
@@ -55,10 +55,10 @@ function PokemonCard({ image, name, tags, idx }) {
     width: "100%",
     maxWidth: "300px",
 
-    "@media (min-width:768px)": {
+    "@media (minWidth:768px)": {
       maxWidth: "400px",
     },
-    "@media (min-width:1024px)": {
+    "@media (minWidth:1024px)": {
       maxWidth: "500px",
     },
   };
@@ -93,7 +93,7 @@ function PokemonCard({ image, name, tags, idx }) {
     marginRight: "8px",
     marginbottom: "8px",
     borderRadius: "20px",
-    backgroundColor: getTagBackgroundColor(),
+    // backgroundColor: getTagBackgroundColor(),
   };
 
   return (
@@ -103,7 +103,7 @@ function PokemonCard({ image, name, tags, idx }) {
       </div>
       <h2 style={nameStyles}>
         {name}
-        <h5>{idx}</h5>
+        <h5>{id}</h5>
       </h2>
       <div style={tagStyles}>
         {tags.map((tag, index) => (
@@ -112,7 +112,7 @@ function PokemonCard({ image, name, tags, idx }) {
             style={{
               ...tagStyles,
               backgroundColor: getTagBackgroundColor(tag.toLowerCase()),
-            }}
+            }}  
           >
             {tag}
           </span>

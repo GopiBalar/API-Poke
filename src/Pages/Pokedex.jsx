@@ -1,103 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { getPokemonDetails, getPokemons } from "../Services/apiServices";
-import PokemonCard from "../Components/PokemonCard";
+import React, { useState } from "react";
+import { useMultipleFetch } from "../customHooks/useFetch";
+// import { Pagination } from "react-bootstrap";
+import PaginationBtn from "../Components/pokedex/PaginationBtn";
+import PokemonList from "../Components/pokedex/PokemonList";
+import SerchBar from "../Components/pokedex/SerchBar";
+import SerchedData from "../Components/pokedex/SerchedData";
 
 function Pokedex() {
-  const gridStyls = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill,minmax(200px,10fr))",
-    gridGap: "20px",
-    justifyContent: "center",
-    padding: "20px",
-    width: "100%",
-  };
-
-  const [pokemons, setPokemons] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
-
-  async function fetchData() {
-    const temp = [];
-    setLoading(true);
-    try {
-      const data = await getPokemons(page);
-      for (const p of data.results) {
-        const pokemon = await getPokemonDetails(p.url);
-        temp.push(pokemon);
-      }
-      setPokemons(temp);
-    } catch (err) {
-      console.log(err);
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(
-    function () {
-      fetchData();
-    },
-    [page]
+  const limit = 20;
+  const offset = page * limit;
+  const { loading, data, error } = useMultipleFetch(
+    `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
   );
 
-  console.log(pokemons);
+  console.log("data", data);
 
-  function next() {
-    setPage((page) => {
-      return ++page;
-    });
+  const [query, setQuery] = useState();
+  const [serchedData, setSerchedData] = useState(null);
+
+  if (loading) {
+    return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
   }
 
-  function preview() {
-    setPage((page) => {
-      return --page;
-    });
-  }
-
-  console.log("page", page);
-  if (loading) return <h1>Loading ...</h1>;
-  if ((!loading && error) || (!loading && !pokemons))
+  if ((!loading && error) || (!loading && !data))
     return <h1>Something Went Wrong ...</h1>;
 
-  const btnStyle = {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: "12px",
-    backgroundColor: "#00001a",
-    padding: "2rem",
-  };
-
-  const style = {
-    padding: "10px",
-  };
   return (
     <>
-      <div style={gridStyls}>
-        {pokemons.map(function (pkm) {
-          return (
-            <PokemonCard
-              name={pkm.name}
-              image={pkm.sprites.other["official-artwork"].front_default}
-              idx={pkm.id}
-              tags={pkm.types.map((type) => {
-                return type.type.name;
-              })}
-            />
-          );
-        })}
-      </div>
-      <div style={btnStyle}>
-        <button onClick={next} style={style}>
-          Next
-        </button>
-        <button onClick={preview} style={style}>
-          Preview
-        </button>
-      </div>
+      <SerchBar
+        query={query}
+        setQuery={setQuery}
+        setSerchedData={setSerchedData}
+      />
+      <h1 style={{ textAlign: "center" }}>Pokemons</h1>
+      
+      <PaginationBtn setPage={setPage} />
+      {serchedData && query ? (
+        <SerchedData pkm={serchedData} />
+      ) : (
+        <PokemonList data={data} />
+      )}
     </>
   );
 }
