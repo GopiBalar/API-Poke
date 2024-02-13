@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function PokemonCard({ image, name, tags, id }) {
+  const navigate = useNavigate();
+
   function getTagBackgroundColor(type) {
     switch (type) {
       case "grass":
@@ -61,6 +64,7 @@ function PokemonCard({ image, name, tags, id }) {
     "@media (minWidth:1024px)": {
       maxWidth: "500px",
     },
+    cursor: "pointer",
   };
   const imageContainerStyles = {
     position: "relative",
@@ -92,12 +96,16 @@ function PokemonCard({ image, name, tags, id }) {
     fontWeight: "bold",
     marginRight: "8px",
     marginbottom: "8px",
-    borderRadius: "20px",
+    borderRadius: "10px",
     // backgroundColor: getTagBackgroundColor(),
   };
 
+  function handleClick() {
+    navigate(`/pokemon/${name}`);
+  }
+
   return (
-    <div style={cardContainerStyles}>
+    <div style={cardContainerStyles} onClick={handleClick}>
       <div style={imageContainerStyles}>
         <img src={image} alt={name} style={imageStyles} />
       </div>
@@ -112,7 +120,8 @@ function PokemonCard({ image, name, tags, id }) {
             style={{
               ...tagStyles,
               backgroundColor: getTagBackgroundColor(tag.toLowerCase()),
-            }}  
+              boxShadow: "2px 4px 6px gray",
+            }}
           >
             {tag}
           </span>

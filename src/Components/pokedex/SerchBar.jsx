@@ -8,6 +8,7 @@ function SerchBar(props) {
       bg="primary"
       data-bs-theme="dark"
       className="bg-body-tertiary justify-content-around p-3"
+      style={{ opacity: "0.95" }}
     >
       <div>
         <Row>
@@ -36,6 +37,7 @@ function SerchBar(props) {
                 props.setSerchedData(data);
               }}
               type="button"
+              className="btn-success"
             >
               Submit
             </Button>

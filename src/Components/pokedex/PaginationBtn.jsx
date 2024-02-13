@@ -25,17 +25,16 @@ function PaginationBtn(props) {
     right: 0,
     left: 0,
     gap: "16px",
-    backgroundColor: "#040D12",
+    // backgroundColor: "#040D12",
+    // boxShadow: "black 0 2px 4px 0,0 2px 4px 0",
     padding: "12px 28px",
     zIndex: 1,
-    boxShadow: "black 0 2px 4px 0,0 2px 4px 0",
     opacity: "0.94",
   };
 
   const btnStyle = {
     padding: "0.6rem 1.3rem",
-    color: "white",
-    fontWeight: 600,
+    fontWeight: 700,
     cursor: "pointer",
     border: "none",
     marginLeft: "20px",
