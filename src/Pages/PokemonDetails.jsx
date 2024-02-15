@@ -3,6 +3,8 @@ import { useFetch } from "../customHooks/useFetch";
 import NextPrev from "../Components/pokedexDetails/NextPrev";
 import { useParams } from "react-router-dom";
 import BasicInfo from "../Components/pokedexDetails/basicInfo/BasicInfo";
+import MoreInfo from "../Components/pokedexDetails/moreInfo/MoreInfo";
+import EvolutionInfo from "../Components/pokedexDetails/evolutionInfo/EvolutionInfo";
 
 function PokemonDetails() {
   const { id } = useParams();
@@ -25,6 +27,8 @@ function PokemonDetails() {
     <div>
       <NextPrev number={number} setName={setName} />
       <BasicInfo data={data} />
+      <MoreInfo stats={data.stats} types={data.types} />
+      <EvolutionInfo />
     </div>
   );
 }

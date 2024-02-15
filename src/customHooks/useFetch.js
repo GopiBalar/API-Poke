@@ -7,7 +7,7 @@ export function useFetch(url) {
 
   useEffect(
     function () {
-      async function fetchData() {
+      async function fetchDataInAPI() {
         try {
           setLoading(true);
           const response = await fetch(url);
@@ -21,7 +21,7 @@ export function useFetch(url) {
         }
       }
 
-      fetchData();
+      fetchDataInAPI();
     },
     [url]
   );
@@ -33,24 +33,23 @@ export function useMultipleFetch(url) {
   const { data: urls } = useFetch(url);
 
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(urls);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-
-  console.log("urls", urls);
 
   useEffect(
     function () {
       async function fetchData() {
         try {
           setLoading(true);
-          const promises = urls.results.map(async (result) => {
-            const response = await fetch(result.url);
-            const json = await response.json();
-            return json;
-          });
+          // const promises = urls.results.map(async (result) => {
+          //   const response = await fetch(result.url);
+          //  const json = await response.json();
+          //   return json;
+          // });
 
-          const resolved = await Promise.all(promises);
-          setData(resolved);
+          // const resolved = await Promise.all(promises);
+          // setData(resolved);
+          const resultSingle = await fetchData(url);
         } catch (error) {
           console.log("error", error);
           setError(error);
