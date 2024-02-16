@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 5rem;
+  background-color: #191919;
+  color: white;
+}
+.span {
+  font-weight: bold;
+  font-size: 17px;
+}
+.footlist {
+  /* list-style-type: none; */
+  line-break: normal;
+  line-height: 40px;
+}

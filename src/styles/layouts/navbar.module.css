@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  padding: 25px 40px;
+  color: white;
+  background-color: #7d0a0a;
+  margin: 0;
+}
+
+.navlist {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+  list-style-type: none;
+}
