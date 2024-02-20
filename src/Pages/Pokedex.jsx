@@ -14,7 +14,7 @@ function Pokedex() {
     `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
   );
 
-  console.log("data", data);
+  // console.log("data", data);
 
   const [query, setQuery] = useState();
   const [serchedData, setSerchedData] = useState(null);

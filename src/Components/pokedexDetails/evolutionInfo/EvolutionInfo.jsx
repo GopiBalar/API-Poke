@@ -81,7 +81,7 @@ function EvolutionInfo() {
     fethchAll();
   }, []);
 
-  console.log("evolutions", evolutions);
+  // console.log("evolutions", evolutions);
 
   return (
     <div

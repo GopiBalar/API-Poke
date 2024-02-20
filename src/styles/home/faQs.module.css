@@ -1,0 +1,37 @@
+.faqsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 1.2rem 7rem;
+  padding: 1rem 1rem 0 2rem;
+  background-color: rgba(255, 255, 128, 0.5);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 50px;
+}
+.faqsQueContainer {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 700;
+  gap: 8px;
+}
+.faqsQueContainer p {
+  margin: 0px;
+  flex-grow: 1;
+}
+.faqsAnsContainer {
+  font-size: 17px;
+}
+.faqsBoxContainerOuter {
+  /* background-color: bisque; */
+  background-color: white;
+  padding: 0 0 30px 0;
+  margin: 0;
+  margin-top: 3rem;
+}
+
+.faqsBoxContainerInner {
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */
+}

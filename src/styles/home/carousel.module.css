@@ -1,7 +1,6 @@
 .slideContainer {
-  height: 80vh;
-  margin: 0;
-  padding: 0;
+  height: 75vh;
+  /* border: 1px solid; */
 }
 
 .slideContainer img {

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/home/slide.module.css";
+import styles from "../../../styles/home/carousel.module.css";
 
 function Slide(props) {
   return (

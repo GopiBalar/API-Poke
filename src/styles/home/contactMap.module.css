@@ -1,0 +1,61 @@
+.addressItemContainer {
+  display: flex;
+  gap: 20px;
+  /* align-items: center; */
+}
+
+.addItemIconContainer {
+  font-size: 30px;
+  width: auto;
+}
+
+.addItemDescContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.addItemDescContainer p {
+  margin: 0;
+}
+.addItemDescContainer p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.contactMapBox {
+  display: flex;
+  /* background-color: paleturquoise; */
+  padding: 2rem;
+  gap: 32px;
+}
+
+.addressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 3rem;
+}
+
+button {
+  width: fit-content;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-weight: 500;
+}
+button {
+  background-color: #b80000;
+}
+button:hover {
+  background-color: #820300;
+}
+
+.mapContainer {
+  padding: 0rem;
+}
+
+.contactMapBoxOuter {
+  padding: 2rem 0;
+  background-color: rgb(225, 245, 245);
+}
