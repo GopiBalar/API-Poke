@@ -31,7 +31,7 @@ function Address() {
           marginheight="0"
           marginwidth="0"
           id="gmap_canvas"
-          src="https://maps.google.com/maps?width=100%&amp;height=300&amp;hl=en&amp;q=yogi%20chowk%20surat+(Lope%20multimedia%20institute)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          src="https://maps.google.com/maps?width=520&height=400&hl=en&q=yogi%20chowk%20surat+(Lope%20multimedia%20institute)&t=&z=12&ie=UTF8&iwloc=B&output=embed"
         ></iframe>
         <a href="https://www.easybooking.eu/produkte/julia-hotelsoftware">
           Hotelprogramm Buchungssystem

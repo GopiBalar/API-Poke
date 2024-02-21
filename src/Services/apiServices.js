@@ -15,7 +15,7 @@ export async function fetchMultipleData(urls) {
 }
 
 export async function sendEmail(form) {
-  console.log(process.env);
+  // console.log(process.env);
   const response = await emailjs.sendForm(
     process.env.REACT_APP_EMJS_SERVICE_ID,
     process.env.REACT_APP_EMJS_TEMPLATE_ID,

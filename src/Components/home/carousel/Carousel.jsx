@@ -67,7 +67,7 @@ function Carousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplayspedd: 3000,
+    autoplayspedd: 2000,
     nextArrow: <NextArrow />,
     prevArrow: <PreviousArrow />,
   };

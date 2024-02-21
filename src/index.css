@@ -16,3 +16,17 @@ code {
   margin: 0;
   padding: 0;
 }
+
+button {
+  width: fit-content;
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 50px;
+  font-weight: 500;
+  background-color: #b80000;
+}
+
+button:hover {
+  background-color: #820300;
+}

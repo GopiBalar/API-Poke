@@ -4,8 +4,8 @@
   align-items: center;
   gap: 32px;
   padding: 25px 40px;
-  /* color: white; */
-  background-color: white;
+  color: white;
+  background-color: rgba(0, 0, 33, 0.961);
   font-weight: 500;
 }
 
@@ -15,4 +15,8 @@
   padding: 0px;
   gap: 40px;
   list-style-type: none;
+}
+
+.active {
+  color: red;
 }

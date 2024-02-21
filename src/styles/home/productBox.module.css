@@ -33,7 +33,7 @@
   padding: 10px;
 }
 
-.productDescContainer button {
+/* .productDescContainer button {
   width: fit-content;
   border: none;
   border-radius: 50px;
@@ -43,12 +43,11 @@
 
 .productDescContainer button {
   background-color: #b80000;
-  /* background-color: white(74,222,128); */
 }
 
 .productDescContainer button:hover {
   background-color: #820300;
-}
+} */
 
 .productBoxContainerOuter {
   margin-top: 40px;

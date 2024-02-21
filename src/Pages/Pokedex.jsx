@@ -34,7 +34,7 @@ function Pokedex() {
         setSerchedData={setSerchedData}
       />
       <h1 style={{ textAlign: "center" }}>Pokemons</h1>
-      
+
       <PaginationBtn setPage={setPage} />
       {serchedData && query ? (
         <SerchedData pkm={serchedData} />
