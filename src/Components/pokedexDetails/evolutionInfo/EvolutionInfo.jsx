@@ -49,27 +49,7 @@ function EvolutionInfo() {
         id: 1,
       };
 
-      function getAllSpecies(chain) {
-        for (const c in chain) {
-          if (
-            c === "evolves_to" &&
-            Array.isArray(chain[c]) &&
-            chain[c].length > 0
-          ) {
-            getAllSpecies(chain[c][0]);
-          } else {
-            if (c === "species") {
-              temp.push(chain[c]);
-              return;
-            }
-          }
-        }
-      }
-      getAllSpecies(data.chain);
-
-      const names = temp.reverse().map((value) => {
-        return value.name;
-      });
+      
 
       const evs = names.map(async (name) => {
         return await getPokemonDetails(

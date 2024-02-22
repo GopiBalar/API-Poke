@@ -1,10 +1,12 @@
 import React from "react";
+import { getTagBackgroundColor } from "../../../utils/tags";
 
 function Chip(props) {
   return (
     <div
       style={{
-        backgroundColor: "#FFB0B0",
+        display: "inline-block",
+        backgroundColor: getTagBackgroundColor(props.title),
         padding: "10px",
         borderRadius: "15px",
       }}

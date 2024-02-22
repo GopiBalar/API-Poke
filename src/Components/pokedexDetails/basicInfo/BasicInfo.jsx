@@ -21,7 +21,7 @@ function BasicInfo(props) {
     abilities,
   } = data;
 
-  console.log("data", data);
+  // console.log("data", data);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>

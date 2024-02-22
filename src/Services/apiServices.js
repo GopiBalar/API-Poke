@@ -1,5 +1,14 @@
 import emailjs from "@emailjs/browser";
 
+export const apis = {
+  getPokemonList: (offset, limit) => {
+    return `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
+  },
+  getPokemonDetails: (id) => {
+    return `https://pokeapi.co/api/v2/pokemon/${id}`;
+  },
+};
+
 export async function fetchData(url) {
   const response = await fetch(url);
   const data = await response.json();
@@ -12,6 +21,14 @@ export async function fetchMultipleData(urls) {
   });
   const data = await Promise.all(promises);
   return data;
+}
+
+export async function fetchEvoulutionChain(id) {
+  const species = await fetchData(
+    `https://pokeapi.co/api/v2/pokemon-species/${id}`
+  );
+  const evolutionChain = await fetchData(species.evolution_chain.url);
+  return evolutionChain.chain;
 }
 
 export async function sendEmail(form) {
