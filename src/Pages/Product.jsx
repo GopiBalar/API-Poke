@@ -1,9 +1,9 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 
-function Contact() {
+function Product() {
   const ctx = useOutletContext();
-  return <div>Contact {ctx}</div>;
+  return <div>Product {ctx}</div>;
 }
 
-export default Contact;
+export default Product;

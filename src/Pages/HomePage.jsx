@@ -5,11 +5,14 @@ import CounterBox from "../Components/home/counterBox/CounterBox";
 import ProductBox from "../Components/home/productBox/ProductBox";
 import FaQsBox from "../Components/home/faQsBox/FaQsBox";
 import ContactMapBox from "../Components/home/contactMapBox/ContactMapBox";
+import { useOutletContext } from "react-router-dom";
 
 function HomePage() {
+  const ctx = useOutletContext();
   return (
     <div style={{ margin: "0" }}>
       <Carousel />
+      {ctx}
       <InfoBox
         src="./image/pokemon4.jpg"
         title="About us"

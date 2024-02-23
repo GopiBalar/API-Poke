@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import { useOutletContext } from "react-router-dom";
 
 function About() {
-  return (
-    <div>About</div>
-  )
+  const ctx = useOutletContext();
+  return <div>About {ctx}</div>;
 }
 
-export default About
+export default About;

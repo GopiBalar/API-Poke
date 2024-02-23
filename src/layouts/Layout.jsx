@@ -2,13 +2,15 @@ import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
-import "../../index.css";
+import "../index.css";
 
 function Layout() {
+  const element = <div style={{ backgroundColor: "red" }}>Hello World</div>;
+
   return (
     <div style={{ overflow: "hidden" }}>
       <Navbar />
-      <Outlet />
+      <Outlet context={element} />
       <a
         id="whatsupBtn"
         style={{
