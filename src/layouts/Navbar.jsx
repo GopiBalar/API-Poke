@@ -4,57 +4,48 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className={styles.container}>
+    <nav id="mainNav" className={styles.container}>
       <div>
         <h1>Pokemon</h1>
       </div>
       <ul className={styles.navlist}>
         <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => {
-              return isActive ? styles.active : "";
+          <NavLink to="/">
+            {(obj) => {
+              return obj.isActive ? "Home Page" : "Home";
             }}
-          >
-            Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/pokemon"
-            className={({ isActive }) => {
-              return isActive ? styles.active : "";
+          <NavLink to="/pokemon">
+            {(obj) => {
+              return obj.isActive ? "Pokemon Page" : "Pokemon";
             }}
-          >
-            Pokemon
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/about"
-            className={({ isActive }) => {
-              return isActive ? styles.active : "";
+          <NavLink to="/about">
+            {(obj) => {
+              return obj.isActive ? "About Page" : "About";
             }}
-          >
-            About
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => {
-              return isActive ? styles.active : "";
+          <NavLink to="/contact">
+            {(obj) => {
+              return obj.isActive ? "Contact Page" : "Contact";
             }}
-          >
-            Contact
           </NavLink>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 
 /* <a href="/contact">Contact</a> */
 /* <Link to={"/contact"}>Contact</Link> */
 
+// className={({ isActive }) => {
+//   return isActive ? styles.active : "";
+// }}
 export default Navbar;

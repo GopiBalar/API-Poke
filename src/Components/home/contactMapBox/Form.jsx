@@ -44,23 +44,23 @@ function Form() {
         }}
       >
         <div className="row">
-          <div class="form-group col-md-6">
+          <div className="form-group col-md-6">
             <label>Name :</label>
             <input
               type="text"
               name="user_name"
-              class="form-control mb-6"
+              className="form-control mb-6"
               id="name"
               placeholder="Enter Your Name"
               required=""
             />
           </div>
-          <div class="form-group col-md-6">
+          <div className="form-group col-md-6">
             <label>Email :</label>
             <input
               type="email"
               name="user_email"
-              class="form-control"
+              className="form-control"
               id="email"
               placeholder="Enter Your Email"
               required=""
@@ -69,12 +69,12 @@ function Form() {
         </div>
 
         <div className="row">
-          <div class="form-group">
+          <div className="form-group">
             <label>Subject :</label>
             <input
               type="email"
               name="user_subject"
-              class="form-control"
+              className="form-control"
               id="subject"
               placeholder="Enter Subject"
               required=""
@@ -83,12 +83,12 @@ function Form() {
         </div>
 
         <div className="row">
-          <div class="form-group ">
+          <div className="form-group ">
             <label>Message :</label>
 
             <textarea
               name="message"
-              class="form-control"
+              className="form-control"
               rows="8"
               placeholder="Enter Message"
               required=""

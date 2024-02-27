@@ -12,7 +12,10 @@ function ProductNavbar() {
           <Link to="/product/new">Product New</Link>
         </li>
         <li>
-          <Link to="/product/details">Product Details</Link>
+          <Link to="/product/1">Product Details</Link>
+        </li>
+        <li>
+          <Link to="/product/2">Product Details</Link>
         </li>
       </ul>
     </div>

@@ -4,7 +4,7 @@ import styles from "../../../styles/home/contactMap.module.css";
 
 function Address() {
   return (
-    <div style={{ backgroundColor: "paleturquoise" }}>
+    <div className={styles.addressContainerOuter}>
       <div className={styles.addressContainer}>
         <AddressItem
           icon="fa-solid fa-location-dot"
@@ -26,10 +26,10 @@ function Address() {
         <iframe
           width="100%"
           height="300"
-          frameborder="0"
+          frameBorder="0"
           scrolling="no"
-          marginheight="0"
-          marginwidth="0"
+          marginHeight="0"
+          marginWidth="0"
           id="gmap_canvas"
           src="https://maps.google.com/maps?width=520&height=400&hl=en&q=yogi%20chowk%20surat+(Lope%20multimedia%20institute)&t=&z=12&ie=UTF8&iwloc=B&output=embed"
         ></iframe>
