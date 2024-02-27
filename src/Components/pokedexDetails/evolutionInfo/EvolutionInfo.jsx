@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getPokemonDetails } from "../../../Services/apiServices";
+import {
+  fetchEvoulutionChain,
+  fetchMultipleData,
+} from "../../../Services/apiServices";
+import { getAllSpecies } from "../../../utils/evolutionHelper";
+import styles from "../../../styles/pokedexDetails/evolutionInfo.module.css";
 
 function Bedge(props) {
   return (
@@ -9,72 +14,35 @@ function Bedge(props) {
   );
 }
 
-function EvolutionInfo() {
-  const temp = [];
+function EvolutionInfo(props) {
+  const { id } = props;
   const [evolutions, setEvolutions] = useState([]);
 
   useEffect(() => {
-    async function fethchAll() {
-      const data = {
-        baby_trigger_item: null,
-        chain: {
-          evolution_details: [],
-          evolves_to: [
-            {
-              evolution_details: [],
-              evolves_to: [
-                {
-                  evolution_details: [],
-                  evolves_to: [],
-                  is_baby: false,
-                  species: {
-                    name: "venusaur",
-                    url: "https://pokeapi.co/api/v2/pokemon-species/3/",
-                  },
-                },
-              ],
-              is_baby: false,
-              species: {
-                name: "ivysaur",
-                url: "https://pokeapi.co/api/v2/pokemon-species/2/",
-              },
-            },
-          ],
-          is_baby: false,
-          species: {
-            name: "bulbasaur",
-            url: "https://pokeapi.co/api/v2/pokemon-species/1/",
-          },
-        },
-        id: 1,
-      };
+    async function fethchDataFromAPI() {
+      const evolutionChain = await fetchEvoulutionChain(id);
+      const names = getAllSpecies(evolutionChain);
 
-      
-
-      const evs = names.map(async (name) => {
-        return await getPokemonDetails(
-          `https://pokeapi.co/api/v2/pokemon/${name}`
-        );
+      const urls = names.map((name) => {
+        return `https://pokeapi.co/api/v2/pokemon/${name}`;
       });
-      setEvolutions(await Promise.all(evs));
+      const data = await fetchMultipleData(urls);
+      setEvolutions(data);
     }
-    fethchAll();
-  }, []);
-
-  // console.log("evolutions", evolutions);
+    fethchDataFromAPI();
+  }, [id]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        margin: "64px 0",
-      }}
-    >
-      <div style={{ display: "flex", gap: "18px" }}>
+    <div className={styles.container}>
+      <div className={styles.containerInner}>
         {evolutions.map((value) => (
           <Bedge src={value.sprites.other["official-artwork"].front_default} />
+        ))}
+        {evolutions.map((evolution, index) => (
+          <Bedge
+            key={index}
+            src={evolution.sprites.other["official-artwork"].front_default}
+          />
         ))}
       </div>
     </div>

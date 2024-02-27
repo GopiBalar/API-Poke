@@ -6,6 +6,7 @@ import Layout from "./layouts/Layout";
 import HomePage from "./Pages/HomePage";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import Pokedex from "./Pages/Pokedex";
 // import ProductLayout from "./layouts/ProductLayout";
 // import Product from "./Pages/Product";
 // import ProductNew from "./Pages/ProductNew";
@@ -19,6 +20,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/">
             <Route index element={<HomePage />} />
+            <Route path="pokemon" element={<Pokedex />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

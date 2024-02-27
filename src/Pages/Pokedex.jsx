@@ -1,28 +1,27 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { useMultipleFetch } from "../customHooks/useFetch";
 import PaginationBtn from "../Components/pokedex/PaginationBtn";
 import PokemonList from "../Components/pokedex/PokemonList";
 import SerchBar from "../Components/pokedex/SerchBar";
-import { apis } from "../Services/apiServices";
+// import { apis } from "../Services/apiServices";
 
 function Pokedex() {
   const [page, setPage] = useState(0);
   const [query, setQuery] = useState("");
-  const [serchedData, setSerchedData] = useState(null);
-
+  const [serchedResult, setSerchedResult] = useState(null);
+  
   const limit = 20;
   const offset = page * limit;
-
-  const getData = useCallback((data) => {
-    return data.results.map((result) => {
-      return result.url;
-    });
-  }, []);
-
+  
   const { loading, data, error } = useMultipleFetch(
-    apis.getPokemonList(offset, limit),
-    getData
+    `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`,
+    (response) => {
+      return response.results.map((value) => {
+        return value.url;
+      });
+    }
   );
+
 
   if (loading) {
     return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
@@ -36,12 +35,12 @@ function Pokedex() {
       <SerchBar
         query={query}
         setQuery={setQuery}
-        setSerchedData={setSerchedData}
+        setSerchedResult={setSerchedResult}
       />
       <h1 style={{ textAlign: "center" }}>Pokemons</h1>
 
       <PaginationBtn setPage={setPage} />
-      <PokemonList data={data} serchedData={serchedData} />
+      <PokemonList data={serchedResult & query ? serchedResult : data} />
     </>
   );
 }

@@ -1,50 +1,33 @@
 import React from "react";
-import { Button, Col, Form, Navbar, Row } from "react-bootstrap";
-import { getPokemonDetails } from "../../Services/apiServices";
+import { fetchData } from "../../Services/apiServices";
+import styles from "../../styles/pokedex/serchBar.module.css";
 
 function SerchBar(props) {
+  async function change(e) {
+    props.setQuery(e.target.value);
+    if (e.target.value === "") {
+      props.setSerchedResult(null);
+    }
+  }
+  async function search() {
+    const data = await fetchData(
+      `https://pokeapi.co/api/v2/pokemon/${props.query}`
+    );
+    props.setSerchedResult(data);
+  }
+
   return (
-    <Navbar
-      bg="primary"
-      data-bs-theme="dark"
-      className="bg-body-tertiary justify-content-around p-3"
-      style={{ opacity: "0.95" }}
-    >
-      <div>
-        <Row>
-          <h4 style={{ color: "white" }}>Serch Name OR Number</h4>
-        </Row>
-        <Row>
-          <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="Search"
-              className=" mr-sm-2"
-              onChange={(e) => {
-                props.setQuery(e.target.value);
-                if (e.target.value === "") {
-                  props.setSerchedData(null);
-                }
-              }}
-            />
-          </Col>
-          <Col xs="auto">
-            <Button
-              onClick={async () => {
-                const data = await getPokemonDetails(
-                  `https://pokeapi.co/api/v2/pokemon/${props.query}`
-                );
-                props.setSerchedData(data);
-              }}
-              type="button"
-              className="btn-success"
-            >
-              Submit
-            </Button>
-          </Col>
-        </Row>
-      </div>
-    </Navbar>
+    <nav className={styles.nav}>
+      <input
+        type="text"
+        placeholder="Name Or Number"
+        className={styles.input}
+        onChange={change}
+      />
+      <button onClick={search} className={styles.btn}>
+        Serch
+      </button>
+    </nav>
   );
 }
 

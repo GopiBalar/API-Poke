@@ -3,39 +3,42 @@ import PokemonCard from "./PokemonCard";
 import styles from "../../styles/pokedex/pokemonList.module.css";
 
 function PokemonList(props) {
-  return (
-    <div className={styles.container}>
-      {props.serchedData ? (
-        <PokemonCard
-          key={props.serchedData.id}
-          name={props.serchedData.name}
-          image={
-            props.serchedData.sprites.other["official-artwork"].front_default
-          }
-          tags={props.serchedData.types.map((type) => {
-            return type.type.name;
-          })}
-          id={props.serchedData.id}
-        />
-      ) : (
+  const { data } = props;
+
+  function render() {
+    if (Array.isArray(props.data)) {
+      return (
         <>
-          {props.data.map(function (pkm) {
+          {data.map(function (pokemon) {
             return (
               <PokemonCard
-                name={pkm.name}
-                image={pkm.sprites.other["official-artwork"].front_default}
-                tags={pkm.types.map((ty) => {
-                  return ty.type.name;
+                key={pokemon.id}
+                name={pokemon.name}
+                image={pokemon.sprites.other["official-artwork"].front_default}
+                tags={pokemon.types.map((type) => {
+                  return type.type.name;
                 })}
-                id={pkm.id}
+                id={pokemon.id}
               />
             );
           })}
         </>
-      )}
-      ;
-    </div>
-  );
+      );
+    }
+
+    return (
+      <PokemonCard
+        name={data.name}
+        image={data.sprites.other["official-artwork"].front_default}
+        tags={data.types.map((ty) => {
+          return ty.type.name;
+        })}
+        id={data.id}
+      />
+    );
+  }
+
+  return <div className={styles.container}>{render()}</div>;
 }
 
 export default PokemonList;
