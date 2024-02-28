@@ -10,7 +10,7 @@ function Navbar() {
       </div>
       <ul className={styles.navlist}>
         <li>
-          <NavLink to="/">
+          <NavLink to="/" state={{ name: "gops" }}>
             {(obj) => {
               return obj.isActive ? "Home Page" : "Home";
             }}

@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 
 function Contact() {
   const ctx = useOutletContext();
+  
   return <div>Contact {ctx}</div>;
 }
 
