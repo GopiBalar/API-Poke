@@ -12,10 +12,14 @@ import Pokedex from "./Pages/Pokedex";
 // import ProductNew from "./Pages/ProductNew";
 // import ProductDetails from "./Pages/ProductDetails";
 import ProductRoutes from "./routes/ProductRoutes";
+import ContactNav from "./layouts/ContactNav";
 
 function App() {
   return (
     <BrowserRouter>
+      <Routes location="/contact">
+        <Route path="/contact" element={<ContactNav />} />
+      </Routes>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/">
