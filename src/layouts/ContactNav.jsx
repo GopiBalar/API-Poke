@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 function ContactNav() {
   return (
-    <div style={{ backgroundColor: "red", color: "white" }}>ContactNav</div>
-  );
+    <div style={{backgroundColor:"red",color:"wheat"}}>ContactNav</div>
+  )
 }
 
-export default ContactNav;
+export default ContactNav
