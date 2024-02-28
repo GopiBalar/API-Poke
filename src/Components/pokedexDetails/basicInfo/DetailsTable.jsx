@@ -1,49 +1,41 @@
 import React from "react";
+import styles from "../../../styles/pokedexDetails/basicInfo.module.css";
 
 function DetailsTable(props) {
   const { height, weight, abilities } = props;
-  const strAbilities = abilities.map((item) => item.ability?.name).join();
+  const strAbilities = abilities.map((item) => item.ability?.name).join(", ");
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        backgroundColor: "#9F70FD",
-        padding: "32px",
-        borderRadius: "40px",
-        fontWeight: "600",
-        fontSize: "20px",
-      }}
-    >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div>
-          <p style={{ color: "white" }}>Height :</p>
-          <p>{height}</p>
-        </div>
-        <div>
-          <p style={{ color: "white" }}>Catogary</p>
-          <p>20</p>
-        </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div>
-          <p style={{ color: "white" }}>Weight:</p>
-          <p>{weight}</p>
-        </div>
-        <div style={{ alignSelf: "flex-start" }}>
-          <p style={{ color: "white" }}>Abilities :</p>
-          <p>{strAbilities}</p>
-        </div>
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div>
-          <p style={{ color: "white" }}>Gender</p>
-          <p>55</p>
-        </div>
-      </div>
-    </div>
+    <table className={styles.tableConatiner}>
+      <tbody>
+        <tr>
+          <td>
+            <p>Height :</p>
+            <p>{height}</p>
+          </td>
+          <td>
+            <p>Catogary</p>
+            <p>20</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Weight:</p>
+            <p>{weight}</p>
+          </td>
+          <td style={{ alignSelf: "flex-start" }}>
+            <p>Abilities :</p>
+            <p>{strAbilities}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>Gender</p>
+            <p>55</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
 

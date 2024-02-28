@@ -9,12 +9,13 @@ import NotFound from "../Pages/NotFound";
 function ProductRoutes() {
   return (
     <Routes>
-    <Route path="/product" element={<ProductLayout />}>
-      <Route index element={<Product />} />
-      <Route path="new" element={<ProductNew />} />
-      <Route path=":id" element={<ProductDetails />} />
-      <Route path="*" element={<NotFound />} />
-    </Route></Routes>
+      <Route element={<ProductLayout />}>
+        <Route index element={<Product />} />
+        <Route path=":id" element={<ProductDetails />} />
+        <Route path="new" element={<ProductNew />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

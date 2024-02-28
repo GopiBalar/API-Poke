@@ -5,7 +5,7 @@ function AddressItem(props) {
   return (
     <div className={styles.addressItemContainer}>
       <div className={styles.addItemIconContainer}>
-        <i class={props.icon}></i>
+        <i className={props.icon}></i>
       </div>
       <div className={styles.addItemDescContainer}>
         <p>{props.title}</p>

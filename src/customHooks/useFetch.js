@@ -1,68 +1,57 @@
 import { useEffect, useState } from "react";
+import { fetchData, fetchMultipleData } from "../Services/apiServices";
 
-export function useFetch(url) {
+export function useFetch(endpoint) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(
     function () {
-      async function fetchDataInAPI() {
+      async function fetchDataFromAPI() {
         try {
           setLoading(true);
-          const response = await fetch(url);
-          const data = await response.json();
-          setData(data);
-        } catch (error) {
-          // console.log(error);
-          setError(error);
+          const response = await fetchData(endpoint);
+          setData(response);
+        } catch (err) {
+          setError(err);
         } finally {
           setLoading(false);
         }
       }
 
-      fetchDataInAPI();
+      fetchDataFromAPI();
     },
-    [url]
+    [endpoint]
   );
 
   return { loading, data, error };
 }
 
-export function useMultipleFetch(url) {
-  const { data: urls } = useFetch(url);
-
+export function useMultipleFetch(url, getUrls) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(
     function () {
-      async function fetchData() {
+      async function fetchDataFromAPI() {
         try {
           setLoading(true);
-          // const promises = urls.results.map(async (result) => {
-          //   const response = await fetch(result.url);
-          //  const json = await response.json();
-          //   return json;
-          // });
-
-          // const resolved = await Promise.all(promises);
-          // setData(resolved);
-          const resultSingle = await fetchData(url);
+          const response = await fetchData(url);
+          const urls = getUrls(response);
+          const multipleResponse = await fetchMultipleData(urls);
+          setData(multipleResponse);
         } catch (error) {
-          console.log("error", error);
+          console.log("Error", error);
           setError(error);
         } finally {
           setLoading(false);
         }
       }
-
-      if (urls && urls.results) {
-        fetchData();
-      }
+      fetchDataFromAPI();
     },
-    [urls]
+    [url]
   );
 
   return { loading, data, error };
