@@ -1,10 +1,11 @@
 import React from "react";
 import DetailsTable from "./DetailsTable";
+import styles from "../../../styles/pokedexDetails/basicInfo.module.css";
 
 function Detaile(props) {
   const { height, weight, abilities } = props;
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+    <div className={styles.detaileContainer}>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsum
         dolores incidunt laboriosam nobis aliquam, blanditiis sed at harum

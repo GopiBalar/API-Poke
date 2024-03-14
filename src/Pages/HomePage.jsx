@@ -17,12 +17,18 @@ function HomePage() {
         src="./image/pokemon4.jpg"
         title="About us"
         description="Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media. The franchise takes place in a shared universe in which humans co-exist with creatures known as Pokémon, a large variety of species endowed with special powers."
-        contacts
+        contantFirst
       />
       <InfoBox
         src="./image/pokemon2.jpg"
         title="Our journey"
         description="Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media. The franchise takes place in a shared universe in which humans co-exist with creatures known as Pokémon, a large variety of species endowed with special powers."
+      />
+      <InfoBox
+        src="./image/pokemon4.jpg"
+        title="About us"
+        description="Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media. The franchise takes place in a shared universe in which humans co-exist with creatures known as Pokémon, a large variety of species endowed with special powers."
+        contantFirst
       />
       <CounterBox />
       <ProductBox />

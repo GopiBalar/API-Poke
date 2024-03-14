@@ -51,7 +51,7 @@ export function useMultipleFetch(url, getUrls) {
       }
       fetchDataFromAPI();
     },
-    [url]
+    []
   );
 
   return { loading, data, error };

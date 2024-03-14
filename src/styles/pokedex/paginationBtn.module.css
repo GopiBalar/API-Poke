@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   right: 0;
   left: 0;
@@ -17,5 +17,5 @@
   cursor: pointer;
   border: none;
   margin-left: 20px;
-  background-color: #d63484;
+  /* background-color: #d63484; */
 }

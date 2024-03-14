@@ -17,9 +17,9 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/pokemon">
+          <NavLink to="/pokedex">
             {(obj) => {
-              return obj.isActive ? "Pokemon Page" : "Pokemon";
+              return obj.isActive ? "Pokedex Page" : "Pokedex";
             }}
           </NavLink>
         </li>

@@ -26,7 +26,7 @@ function FaQs(props) {
           onClick={onExpend}
           style={{
             cursor: "pointer",
-            transition: "all 400ms linear",
+            transition: "all 100ms linear",
             rotate: isExpanded ? "0deg" : "180deg",
           }}
         ></i>
@@ -34,9 +34,9 @@ function FaQs(props) {
       <p
         className={styles.faqsAnsContainer}
         style={{
-          maxHeight: isExpanded ? "300px" : "0px",
+          height: isExpanded ? "fit-content" : "0px",
           overflow: "hidden",
-          transition: "all 400ms linear",
+          transition: "all 1000ms linear",
         }}
       >
         {props.ans}

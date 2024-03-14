@@ -9,10 +9,10 @@ function Pokedex() {
   const [page, setPage] = useState(0);
   const [query, setQuery] = useState("");
   const [serchedResult, setSerchedResult] = useState(null);
-  
+
   const limit = 20;
   const offset = page * limit;
-  
+
   const { loading, data, error } = useMultipleFetch(
     `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`,
     (response) => {
@@ -21,7 +21,6 @@ function Pokedex() {
       });
     }
   );
-
 
   if (loading) {
     return <h1 style={{ textAlign: "center" }}>Loading ...</h1>;
@@ -37,10 +36,9 @@ function Pokedex() {
         setQuery={setQuery}
         setSerchedResult={setSerchedResult}
       />
-      <h1 style={{ textAlign: "center" }}>Pokemons</h1>
 
-      <PaginationBtn setPage={setPage} />
       <PokemonList data={serchedResult & query ? serchedResult : data} />
+      <PaginationBtn setPage={setPage} />
     </>
   );
 }

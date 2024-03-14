@@ -10,7 +10,8 @@ function Layout() {
   return (
     <div style={{ overflow: "hidden" }}>
       <Navbar />
-      <Outlet context={element} />
+      {/* <Outlet context={element} /> */}
+      <Outlet />
       <a
         id="whatsupBtn"
         style={{

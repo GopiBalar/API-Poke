@@ -11,20 +11,22 @@ import Pokedex from "./Pages/Pokedex";
 // import Product from "./Pages/Product";
 // import ProductNew from "./Pages/ProductNew";
 // import ProductDetails from "./Pages/ProductDetails";
+// import ContactNav from "./layouts/ContactNav";
 import ProductRoutes from "./routes/ProductRoutes";
-import ContactNav from "./layouts/ContactNav";
+import PokemonDetails from "./Pages/PokemonDetails";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes location="/contact">
+      {/* <Routes location="/contact">
         <Route path="/contact" element={<ContactNav />} />
-      </Routes>
+      </Routes> */}
       <Routes>
         <Route element={<Layout />}>
           <Route path="/">
             <Route index element={<HomePage />} />
-            <Route path="pokemon" element={<Pokedex />} />
+            <Route path="pokedex" element={<Pokedex />} />
+            <Route path="pokemon/:id" element={<PokemonDetails />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

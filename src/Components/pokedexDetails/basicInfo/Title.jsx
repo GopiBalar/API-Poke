@@ -1,11 +1,12 @@
 import React from "react";
+import styles from "../../../styles/pokedexDetails/basicInfo.module.css";
 
 function Title(props) {
   const { name, id } = props;
 
   return (
-    <div>
-      <h2 style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+    <div className={styles.titleContainer}>
+      <h2>
         <span>{name}</span>
         <span>#{id}</span>
       </h2>

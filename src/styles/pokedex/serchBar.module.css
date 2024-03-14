@@ -1,0 +1,14 @@
+.navContainer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 1rem;
+}
+
+.navContainer input {
+  padding-left: 5px;
+}
+
+.serchBtn i {
+  font-size: 23px;
+}

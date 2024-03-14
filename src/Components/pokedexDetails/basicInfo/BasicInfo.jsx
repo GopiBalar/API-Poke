@@ -2,6 +2,7 @@ import React from "react";
 import Title from "./Title";
 import Image from "./Image";
 import Detaile from "./Detaile";
+import styles from "../../../styles/pokedexDetails/basicInfo.module.css";
 
 function BasicInfo(props) {
   const { data } = props;
@@ -24,9 +25,9 @@ function BasicInfo(props) {
   // console.log("data", data);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+    <div className={styles.basicContainer}>
       <Title id={id} name={name} />
-      <div style={{ display: "flex", width: "70%", margin: "auto" }}>
+      <div className={styles.basicContainerInner}>
         <Image name={name} img={front_default} />
         <Detaile height={height} weight={weight} abilities={abilities} />
       </div>

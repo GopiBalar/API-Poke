@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../../styles/pokedexDetails/prevNext.module.css";
 
 function NextPrev(props) {
   const { number, setName } = props;
@@ -20,9 +21,9 @@ function NextPrev(props) {
   }
 
   return (
-    <div>
-      <button onClick={next}>Next</button>
+    <div className={styles.prevNext}>
       <button onClick={previous}>Previous</button>
+      <button onClick={next}>Next</button>
     </div>
   );
 }

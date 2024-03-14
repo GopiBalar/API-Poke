@@ -26,10 +26,10 @@ function Address() {
         <iframe
           width="100%"
           height="300"
-          frameBorder="0"
+          frameborder="0"
           scrolling="no"
-          marginHeight="0"
-          marginWidth="0"
+          marginheight="0"
+          marginwidth="0"
           id="gmap_canvas"
           src="https://maps.google.com/maps?width=520&height=400&hl=en&q=yogi%20chowk%20surat+(Lope%20multimedia%20institute)&t=&z=12&ie=UTF8&iwloc=B&output=embed"
         ></iframe>

@@ -17,15 +17,16 @@ function SerchBar(props) {
   }
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.navContainer}>
       <input
         type="text"
         placeholder="Name Or Number"
         className={styles.input}
         onChange={change}
       />
-      <button onClick={search} className={styles.btn}>
-        Serch
+      <button onClick={search} className={styles.serchBtn}>
+        {/* Search */}
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
       </button>
     </nav>
   );

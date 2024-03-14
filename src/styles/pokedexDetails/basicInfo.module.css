@@ -1,12 +1,19 @@
-.imageContainer {
-  width: 100%;
-  height: 100%;
+.basicContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.basicContainerInner {
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+
+.detaileContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .tableContainer {
@@ -31,4 +38,30 @@
 }
 .tableContainer tbody tr td p:first-child {
   color: white;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* border: 2px solid red; */
+  /* background-color: #80deea; */
+}
+
+.titleContainer h2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* border: 2px solid red; */
 }

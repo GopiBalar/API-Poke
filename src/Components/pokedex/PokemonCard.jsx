@@ -14,26 +14,23 @@ function PokemonCard(props) {
 
   return (
     <div className={styles.cardContainerStyles} onClick={handleClick}>
-      <div className={styles.imageContainerStyles}>
-        <img src={image} alt={name} className={styles.imageStyles} />
-      </div>
-      <h2 style={styles.nameStyles}>
-        {name}
-        <h5>{id}</h5>
-      </h2>
-      <div style={styles.tagStyles}>
+      <h2 className={styles.nameStyles}>{name}</h2>
+      <div className={styles.tagStyles}>
         {tags.map((tag, index) => (
           <span
             key={index}
             className={styles.tagStyles}
             style={{
               backgroundColor: getTagBackgroundColor(tag.toLowerCase()),
-              boxShadow: "2px 4px 6px gray",
+              // boxShadow: "2px 4px 6px gray",
             }}
           >
             {tag}
           </span>
         ))}
+      </div>
+      <div className={styles.imageContainerStyles}>
+        <img src={image} alt={name} className={styles.imageStyles} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import emailjs from "@emailjs/browser";
+  import emailjs from "@emailjs/browser";
 
 export async function fetchData(url) {
   try {

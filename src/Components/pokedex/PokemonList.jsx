@@ -25,7 +25,6 @@ function PokemonList(props) {
         </>
       );
     }
-
     return (
       <PokemonCard
         name={data.name}
@@ -33,7 +32,7 @@ function PokemonList(props) {
         tags={data.types.map((ty) => {
           return ty.type.name;
         })}
-        id={data.id}
+        // id={data.id}
       />
     );
   }
